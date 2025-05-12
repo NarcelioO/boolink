@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use App\Models\Link;
 
 class Index extends Component
 {
@@ -33,14 +34,19 @@ class Index extends Component
     
 
     #[Computed]
-    public function links()
+    public function paginatedlinks()
     {
-        $links =  Auth::user()->links()->get();
-        return $links->map(function ($link) {
-                $link->title = $this->getCachedTitle($link->url);
-                return $link;
+        
+        $links =  Auth::user()->links()->paginate(10);
+        // return $links->map(function ($link) {
+        //         $link->title = $this->getCachedTitle($link->url);
+        //         return $link;
             
-        });
+        // });
+        foreach($links as $link){
+            $link->title = $this->getCachedTitle($link->url);
+        }
+        return $links;
     }
 
 

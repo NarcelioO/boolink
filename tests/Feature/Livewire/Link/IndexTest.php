@@ -12,7 +12,6 @@ it('renders successfully', function () {
     Livewire::actingAs($user)
         ->test(Index::class)
         ->assertStatus(200);
-    
 });
 
 it('shows user links', function () {
