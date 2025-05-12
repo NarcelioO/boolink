@@ -23,7 +23,7 @@ Sistema de gerenciamento de links com recursos de cache e visualização de tít
 
 1. Clone o repositório
 ```bash
-git clone https://github.com/NarcelioO/linkbook.git
+git clone https://github.com/NarcelioO/booklink.git
 cd linkbook
 ```
 
