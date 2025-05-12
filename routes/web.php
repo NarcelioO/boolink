@@ -9,12 +9,16 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+// Route::view('dashboard', 'dashboard')
+//     ->middleware(['auth', 'verified'])
+//     ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('links', \App\Livewire\Link\Index::class)->name('links.index');
+    Route::get('dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    
+    Route::get('/links', \App\Livewire\Link\Index::class)->name('links');
     Route::redirect('settings', 'settings/profile');
 
     Route::get('settings/profile', Profile::class)->name('settings.profile');
