@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('url')->comment('The URL of the link');
+            $table->string('title')->nullable()->comment('The title of the link');
             $table->timestamps();
         });
     }
