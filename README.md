@@ -1,4 +1,4 @@
-# 📚 Linkbook
+# 📚 Boolink
 
 Sistema de gerenciamento de links com recursos de cache e visualização de títulos automáticos.
 
